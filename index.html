@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Sort and Filter a Table Using Angular</title>
+    <title>Перелік рекомендованих наукових журналів для публікацій</title>
 
 
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css'>
@@ -110,16 +110,16 @@
         </thead>
 
         <tbody>
-        <tr ng-repeat="roll in sushi | orderBy:sortType:sortReverse | filter:searchFish">
-            <td>{{ roll.name }}</td>
-            <td>{{ roll.publisher }}</td>
+        <tr ng-repeat="journal in internationalJournals | orderBy:sortType:sortReverse | filter:searchFish">
+            <td>{{ journal.name }}</td>
+            <td>{{ journal.publisher }}</td>
             <td>
-                <a ng-repeat="rollItem in roll.info track by $index" href="{{rollItem}}">{{ rollItem }}</br></a>
+                <a ng-repeat="journalItem in journal.info track by $index" href="{{journalItem}}">{{ journalItem }}</br></a>
             </td>
-            <td><a href="{{ roll.forauthor }}">{{ roll.forauthor }}</a></td>
-            <td>{{ roll.indexing }}</td>
-            <td>{{ roll.issn }}</td>
-            <td>{{ roll.mark}}</td>
+            <td><a href="{{ journalItem.forauthor }}">{{ journalItem.forauthor }}</a></td>
+            <td>{{ journal.indexing }}</td>
+            <td>{{ journal.issn }}</td>
+            <td>{{ journal.mark}}</td>
 
         </tr>
 
@@ -132,7 +132,6 @@
 
 
 <script src="js/index.js"></script>
-
 
 </body>
 
