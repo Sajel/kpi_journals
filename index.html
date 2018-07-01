@@ -24,10 +24,12 @@
             <p class="lead"><h4><a href="http://fiot.kpi.ua/?page_id=8453">Назад</a></h4></p>
             <ul>
                 <h4>
-                    <li><a href="#international-journals">Перелік міжнародних наукових журналів, рекомендованих для опублікування наукових статей</a></li>
+                    <li><a href="#international-journals">Перелік міжнародних наукових журналів, рекомендованих для
+                        опублікування наукових статей</a></li>
                 </h4>
                 <h4>
-                    <li>Перелік українських журналів, що входять до наукометричних баз даних Scopus і Web of Science
+                    <li><a href="#ukrainian-journals">Перелік українських журналів, що входять до наукометричних баз
+                        даних Scopus і Web of Science</a>
                     </li>
                 </h4>
                 <h4>
@@ -42,7 +44,8 @@
         </div>
     </div>
 
-    <h3 id="international-journals">Перелік міжнародних наукових журналів, рекомендованих для опублікування наукових статей</h3>
+    <h3 id="international-journals">Перелік міжнародних наукових журналів, рекомендованих для опублікування наукових
+        статей</h3>
 
     <form>
         <div class="form-group">
@@ -114,12 +117,115 @@
             <td>{{ journal.name }}</td>
             <td>{{ journal.publisher }}</td>
             <td>
-                <a ng-repeat="journalItem in journal.info track by $index" href="{{journalItem}}">{{ journalItem }}</br></a>
+                <a ng-repeat="journalItem in journal.info track by $index" href="{{journalItem}}">{{ journalItem
+                    }}</br></a>
             </td>
             <td><a href="{{ journalItem.forauthor }}">{{ journalItem.forauthor }}</a></td>
             <td>{{ journal.indexing }}</td>
             <td>{{ journal.issn }}</td>
             <td>{{ journal.mark}}</td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+    <h3 id="ukrainian-journals">Перелік українських журналів, що входять до наукометричних баз даних Scopus і Web of
+        Science</h3>
+
+    <form>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                <input type="text" class="form-control" placeholder="Пошук журналу" ng-model="searchUkrainianJournal">
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-responsive table-bordered table-striped">
+
+        <thead>
+        <tr>
+            <td>
+                <a href="" ng-click="ukrainianJournalSortType = 'name'; ukrainianSortReverse = !ukrainianSortReverse">
+                    Назва журналу
+                    <span ng-show="ukrainianJournalSortType == 'name' && !ukrainianSortReverse"
+                          class="fa fa-caret-down"></span>
+                    <span ng-show="ukrainianJournalSortType == 'name' && ukrainianSortReverse"
+                          class="fa fa-caret-up"></span>
+                </a>
+            </td>
+            <td>
+                <a href=""
+                   ng-click="ukrainianJournalSortType = 'publisher'; ukrainianSortReverse = !ukrainianSortReverse">
+                    Видавець
+                    <span ng-show="ukrainianJournalSortType == 'publisher' && !ukrainianSortReverse"
+                          class="fa fa-caret-down"></span>
+                    <span ng-show="ukrainianJournalSortType == 'publisher' && ukrainianSortReverse"
+                          class="fa fa-caret-up"></span>
+                </a>
+            </td>
+            <td>
+                <a href=""
+                   ng-click="ukrainianJournalSortType = 'hyperlink'; ukrainianSortReverse = !ukrainianSortReverse">
+                    Інформація про журнал
+                    <span ng-show="ukrainianJournalSortType == 'hyperlink' && !ukrainianSortReverse"
+                          class="fa fa-caret-down"></span>
+                    <span ng-show="ukrainianJournalSortType == 'hyperlink' && ukrainianSortReverse"
+                          class="fa fa-caret-up"></span>
+                </a>
+            </td>
+            <td>
+                <a href="" ng-click="ukrainianJournalSortType = 'issn'; ukrainianSortReverse = !ukrainianSortReverse">
+                    ISSN
+                    <span ng-show="ukrainianJournalSortType == 'issn' && !ukrainianSortReverse"
+                          class="fa fa-caret-down"></span>
+                    <span ng-show="ukrainianJournalSortType == 'issn' && ukrainianSortReverse"
+                          class="fa fa-caret-up"></span>
+                </a>
+            </td>
+            <td>
+                <a href=""
+                   ng-click="ukrainianJournalSortType = 'indexingInDB'; ukrainianSortReverse = !ukrainianSortReverse">
+                    Індексація в БД
+                    <span ng-show="ukrainianJournalSortType == 'indexingInDB' && !ukrainianSortReverse"
+                          class="fa fa-caret-down"></span>
+                    <span ng-show="ukrainianJournalSortType == 'indexingInDB' && ukrainianSortReverse"
+                          class="fa fa-caret-up"></span>
+                </a>
+            </td>
+            <td>
+                <a href="" ng-click="ukrainianJournalSortType = 'sjr'; ukrainianSortReverse = !ukrainianSortReverse">
+                    SJR 2017
+                    <span ng-show="ukrainianJournalSortType == 'sjr' && !ukrainianSortReverse"
+                          class="fa fa-caret-down"></span>
+                    <span ng-show="ukrainianJournalSortType == 'sjr' && ukrainianSortReverse"
+                          class="fa fa-caret-up"></span>
+                </a>
+            </td>
+            <td>
+                <a href=""
+                   ng-click="ukrainianJournalSortType = 'impactFactor'; ukrainianSortReverse = !ukrainianSortReverse">
+                    IF 2017
+                    <span ng-show="ukrainianJournalSortType == 'impactFactor' && !ukrainianSortReverse"
+                          class="fa fa-caret-down"></span>
+                    <span ng-show="ukrainianJournalSortType == 'impactFactor' && ukrainianSortReverse"
+                          class="fa fa-caret-up"></span>
+                </a>
+            </td>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="journal in ukrainianJournals | orderBy:ukrainianJournalSortType:ukrainianSortReverse | filter:searchUkrainianJournal">
+            <td>{{ journal.name }}</td>
+            <td>{{ journal.publisher }}</td>
+            <td><a href="{{ journal.hyperlink }}">{{ journal.hyperlink }}</a></td>
+            <td>{{ journal.issn}}</td>
+            <td>{{ journal.indexingInDB }}</td>
+            <td>{{ journal.sjr }}</td>
+            <td>{{ journal.impactFactor}}</td>
 
         </tr>
 

@@ -10,4 +10,11 @@ angular.module('sortApp', [])
             }, function (error) {
                 console.log(error);
             });
+
+        $http.get('./ukrainianJournals.json')
+            .then(function (response) {
+                $scope.ukrainianJournals = response.data;
+            }, function (error) {
+                console.log(error);
+            });
     });
